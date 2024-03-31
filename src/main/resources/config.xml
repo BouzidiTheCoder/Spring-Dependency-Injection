@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Déclaration d'un bean pour l'implémentation DAO -->
+    <bean id="dao" class="dao.DaoImpl"></bean>
+
+    <!-- Déclaration d'un bean pour l'implémentation Métier -->
+    <bean id="metier" class="metier.IMetierImpl">
+        <!-- Injection de dépendance pour la propriété 'dao' de l'implémentation Métier -->
+        <property name="dao" ref="dao"></property>
+    </bean>
+</beans>
